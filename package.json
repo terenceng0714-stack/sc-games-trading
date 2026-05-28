@@ -1,0 +1,119 @@
+﻿export function RepairConsoleVisual() {
+  const traces = [
+    "M12.5 45 H42 L55 32 H92",
+    "M18 68 H46 L63 86 H108",
+    "M35 24 H74 L92 42 H122",
+    "M70 116 H112 L132 96 H154",
+    "M105 58 H148 L165 75 H202",
+    "M132 24 H190"
+  ];
+
+  return (
+    <div className="fade-in float-slow relative mx-auto w-full max-w-xl">
+      <div className="scanline relative overflow-hidden rounded-[8px] border border-white/10 bg-panel p-5 shadow-purpleGlow">
+        <div className="rounded-[8px] border border-neonBlue/25 bg-black/65 p-5">
+          <div className="mb-5 flex items-center justify-between">
+            <div>
+              <p className="text-xs font-black uppercase text-neonBlue">
+                Macro Bench View
+              </p>
+              <p className="mt-1 text-2xl font-black text-white">
+                Chip-Level Diagnostics
+              </p>
+            </div>
+            <div className="rounded-full border border-emerald-300/30 bg-emerald-300/10 px-3 py-1 text-xs font-black text-emerald-300">
+              LIVE TEST
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden rounded-[8px] border border-white/10 bg-[#05070a] p-4">
+            <svg
+              className="h-72 w-full"
+              fill="none"
+              role="img"
+              viewBox="0 0 240 180"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Abstract macro circuit board repair illustration</title>
+              <rect height="180" rx="10" width="240" fill="#080c10" />
+              {traces.map((trace) => (
+                <path
+                  d={trace}
+                  key={trace}
+                  stroke="#35d6ff"
+                  strokeOpacity="0.52"
+                  strokeWidth="2"
+                />
+              ))}
+              {Array.from({ length: 18 }).map((_, index) => {
+                const x = 22 + ((index * 37) % 190);
+                const y = 24 + ((index * 29) % 128);
+                return (
+                  <circle
+                    cx={x}
+                    cy={y}
+                    fill="#1bffb5"
+                    fillOpacity="0.82"
+                    key={index}
+                    r={index % 3 === 0 ? 3.4 : 2.4}
+                  />
+                );
+              })}
+              <rect
+                height="54"
+                rx="6"
+                stroke="#9b5cff"
+                strokeWidth="2"
+                width="70"
+                x="82"
+                y="58"
+              />
+              <rect height="34" rx="4" width="48" x="93" y="68" fill="#111827" />
+              <path d="M176 12 L222 58" stroke="#f6f8ff" strokeWidth="4" />
+              <path
+                d="M169 19 L215 65"
+                stroke="#ff3d6e"
+                strokeOpacity="0.7"
+                strokeWidth="2"
+              />
+              <circle
+                cx="164"
+                cy="72"
+                fill="#35d6ff"
+                fillOpacity="0.22"
+                r="24"
+              />
+              <circle cx="164" cy="72" fill="#35d6ff" r="4" />
+            </svg>
+            <div className="absolute bottom-4 left-4 right-4 grid gap-3 sm:grid-cols-3">
+              {["THERMAL", "METER", "SOLDER"].map((item) => (
+                <div
+                  className="rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-center text-xs font-black text-slate-200 backdrop-blur"
+                  key={item}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-5 grid gap-3 sm:grid-cols-3">
+            <div className="rounded-xl border border-neonBlue/25 bg-neonBlue/10 p-3">
+              <p className="text-xs text-slate-400">Fault Type</p>
+              <p className="font-bold text-white">Board Short</p>
+            </div>
+            <div className="rounded-xl border border-neonPurple/25 bg-neonPurple/10 p-3">
+              <p className="text-xs text-slate-400">Tooling</p>
+              <p className="font-bold text-white">Micro-Solder</p>
+            </div>
+            <div className="rounded-xl border border-emerald-300/25 bg-emerald-300/10 p-3">
+              <p className="text-xs text-slate-400">Goal</p>
+              <p className="font-bold text-emerald-300">Save Board</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
