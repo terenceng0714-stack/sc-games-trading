@@ -1,6 +1,7 @@
-# SC GAMES TRADING Website
+# SC Games Website
 
-Modern responsive website for a gaming console repair business in Malaysia.
+Modern responsive website for a premium gaming console micro-repair specialist
+at Holiday Plaza, Johor Bahru.
 
 ## Tech Stack
 
