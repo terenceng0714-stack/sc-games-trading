@@ -1,4 +1,4 @@
-export const phoneNumber = "60123456789";
+export const phoneNumber = "60127713518";
 
 export const whatsappHref = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
   "Hi SC GAMES TRADING, I would like to get a repair quote for my gaming device."
